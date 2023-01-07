@@ -1,6 +1,6 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
-# from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 import auth
@@ -19,6 +19,7 @@ models.Base.metadata.create_all(bind=engine)
 jplApp = FastAPI()
 
 
+origins = ["*"]
 # origins = [
 #     "http://localhost",
 #     "http://localhost:8080",
@@ -27,13 +28,13 @@ jplApp = FastAPI()
 #     "https://useritem-api-service-api-eindproject-jentelliekens.cloud.okteto.net/"
 # ]
 
-# jplApp.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+jplApp.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # Dependency
