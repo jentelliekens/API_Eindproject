@@ -24,6 +24,7 @@ origins = [
     "http://localhost:8080",
     "https://localhost.tiangolo.com",
     "http://127.0.0.1:5500"
+    "https://useritem-api-service-api-eindproject-jentelliekens.cloud.okteto.net/"
 ]
 
 jplApp.add_middleware(
